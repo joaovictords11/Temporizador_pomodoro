@@ -77,6 +77,11 @@ const contagemRegressiva = () => {
         somTermino.play()
         textoIniciarOuPausar.textContent = "Continuar"
         imagemIniciarOuPausar.setAttribute('src', './imagens/play_arrow.png')
+        const focoAtivo = html.getAttribute('data-contexto') == 'foco'
+        if (focoAtivo) {
+            const evento = new CustomEvent('FocoFinalizado')
+            document.dispatchEvent(evento)
+        }
         zerar()
         return
     }
